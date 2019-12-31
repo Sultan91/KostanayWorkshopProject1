@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="jumbotron text-center">
+<h1> Welcome</h1>
+    <p class="lead">This application will do the following: </p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h1>Upload an image</h1>
+      <hr>
+
+      <form action="/upload-image" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label>Select image</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="image" id="image">
+            <label class="custom-file-label" for="image">Select image...</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Upload</button>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<i>_________________________________________________________________________________________________________________</i>
+<hr>
+<a href='/hist_stabilization'><input type=”button” value=”Цветокоррекция”></a>
+<br>
+<hr>
+<a href='/convert2gray'><input type=”button” value=”convert2gray”></a>
+<hr>
+<a href='/smoothed'><input type=”button” value=”Сглаженная"></a>
+<hr>
+<hr>
+
+<br>
+<b> Result:</b>
+<br>
+<img src="{{output_img}}">
+{% endblock %}
